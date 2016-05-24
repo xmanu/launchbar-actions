@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>logo.png</string>
+	<key>CFBundleIdentifier</key>
+	<string>eu.weiel.LaunchBar.action.Twitch</string>
+	<key>CFBundleName</key>
+	<string>Twitch</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBArgument</key>
+	<string>Twitch channel name</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>Twitch channel name</string>
+		<key>LBAuthor</key>
+		<string>Manuel Weiel</string>
+		<key>LBEmail</key>
+		<string>manuel@weiel.eu</string>
+		<key>LBResult</key>
+		<string>List of followed channels</string>
+		<key>LBSummary</key>
+		<string>Displays the followed channels of any channel. Also displays if any of the followed channels is online.</string>
+		<key>LBTwitter</key>
+		<string>@xmanuw</string>
+		<key>LBWebsite</key>
+		<string>http://manuel.weiel.eu</string>
+	</dict>
+	<key>LBResult</key>
+	<string>List of followed channels</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Twitch channel name</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2015 Manuel Weiel</string>
+</dict>
+</plist>
