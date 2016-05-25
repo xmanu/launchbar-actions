@@ -3,6 +3,10 @@
 
 function runWithString(string)
 {
+    if (string.length == 0) {
+        return [];
+    }
+    
 	var limit = 5;
 	
 	var data = HTTP.getJSON("https://sticky-summer-lb.inkstone-clients.net/api/v1/searchMusic?term="+encodeURI(string)+"&country="+LaunchBar.currentLocale+"&media=appleMusic&entity=album&genreId=&limit="+limit);
