@@ -16,6 +16,9 @@ function runWithString(string)
 	results = results.concat(songData.data.results);
 	
 	var suggestions = [];
+    var artworkRequests = [];
+    var logoPaths = [];
+    
 	for (var index in results) {
 		var item = results[index];
 		
@@ -24,26 +27,16 @@ function runWithString(string)
 		LaunchBar.debugLog(JSON.stringify(item));
 		
 		if (item.kind == "album" || item.kind == "song") {
-			
 			var logoPath = Action.cachePath + '/' + item.id + ".png";
 			
 			if (!File.exists(logoPath)) {
-				var artworkURL = item.artwork.url.replace('{w}', '32').replace('{h}', '32').replace('{f}', 'png');
-				LaunchBar.debugLog('Downloading logo ('+artworkURL+') to: ' + logoPath);
-				var logo = HTTP.getData(artworkURL);
-				LaunchBar.debugLog('Downloaded logo');
-				if (logo.error == undefined) {
-					LaunchBar.debugLog('Attepmting to write data...');
-					File.writeData(logo.data, logoPath);
-				}
+                var artworkURL = item.artwork.url.replace('{w}', '32').replace('{h}', '32').replace('{f}', 'png');
+                var artworkRequest = HTTP.createGetDataRequest(artworkURL);
+                artworkRequest.path = logoPath;
+                artworkRequests.push(artworkRequest);
 			}
-			
-			if (File.exists(logoPath)) {
-				res['icon'] = logoPath;
-			} else {
-				res['icon'] = 'logo.png';
-			}
-			
+            
+            res['icon'] = logoPath;
 			res['url'] = "itms" + item.url.substring(4);
 			res['subtitle'] = item.artistName;
 			res['badge'] = "album";
@@ -55,6 +48,17 @@ function runWithString(string)
 			suggestions.push(res);
 		}
 	}
-	
+    
+    var results = HTTP.loadRequests(artworkRequests);
+    
+    for (var i = 0; i < results.length; i++) {
+        var logo = results[i];
+        if (logo.error == undefined) {
+            File.writeData(logo.data, artworkRequests[i].path);
+        } else {
+            suggestions[i].icon = (suggestions[i].badge == "album") ? "at.obdev.LaunchBar:AlbumTemplate.icns" : "at.obdev.LaunchBar:AudioTrackTemplate.icns";
+        }
+    }
+    
     return suggestions;
 }
