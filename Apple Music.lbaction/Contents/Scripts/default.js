@@ -7,10 +7,11 @@ function runWithString(string)
         return [];
     }
     
-	var limit = 5;
+    var limit = (Action.preferences.FetchLimit != undefined) ? Action.preferences.FetchLimit : 5;
+    var storeCountry = (Action.preferences.StoreCountry != undefined) ? Action.preferences.StoreCountry : LaunchBar.currentLocale;
 	
-	var data = HTTP.getJSON("https://sticky-summer-lb.inkstone-clients.net/api/v1/searchMusic?term="+encodeURI(string)+"&country="+LaunchBar.currentLocale+"&media=appleMusic&entity=album&genreId=&limit="+limit);
-	songData = HTTP.getJSON("https://sticky-summer-lb.inkstone-clients.net/api/v1/searchMusic?term="+encodeURI(string)+"&country="+LaunchBar.currentLocale+"&media=appleMusic&entity=song&genreId=&limit="+limit);
+	var data = HTTP.getJSON("https://sticky-summer-lb.inkstone-clients.net/api/v1/searchMusic?term="+encodeURI(string)+"&country="+storeCountry+"&media=appleMusic&entity=album&genreId=&limit="+limit);
+	songData = HTTP.getJSON("https://sticky-summer-lb.inkstone-clients.net/api/v1/searchMusic?term="+encodeURI(string)+"&country="+storeCountry+"&media=appleMusic&entity=song&genreId=&limit="+limit);
 	var results = data.data.results;
 	results = results.concat(songData.data.results);
 	
