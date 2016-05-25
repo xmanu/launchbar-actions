@@ -39,9 +39,9 @@ function runWithString(string)
             res['icon'] = logoPath;
 			res['url'] = "itms" + item.url.substring(4);
 			res['subtitle'] = item.artistName;
-			res['badge'] = "album";
+			res['badge'] = "Album";
 			if (item.kind == "song") {
-				res['badge'] = "song";
+				res['badge'] = "Song";
 				res['subtitle'] = item.collectionName + " - " + item.artistName;
 			}
 			
@@ -56,7 +56,7 @@ function runWithString(string)
         if (logo.error == undefined) {
             File.writeData(logo.data, artworkRequests[i].path);
         } else {
-            suggestions[i].icon = (suggestions[i].badge == "album") ? "at.obdev.LaunchBar:AlbumTemplate.icns" : "at.obdev.LaunchBar:AudioTrackTemplate.icns";
+            suggestions[i].icon = (suggestions[i].badge == "Album") ? "at.obdev.LaunchBar:AlbumTemplate.icns" : "at.obdev.LaunchBar:AudioTrackTemplate.icns";
         }
     }
     
