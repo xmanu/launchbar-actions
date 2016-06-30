@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>icon.png</string>
+	<key>CFBundleIdentifier</key>
+	<string>eu.weiel.LaunchBar.action.DBLPSearch</string>
+	<key>CFBundleName</key>
+	<string>DBLP Search</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Manuel Weiel</string>
+		<key>LBEmail</key>
+		<string>manuel@weiel.eu</string>
+		<key>LBRequirements</key>
+		<string>Active Internet connection</string>
+		<key>LBSummary</key>
+		<string>This action searches the DBLP computer science bibliography (http://dblp.uni-trier.de) and allows easy copying of bibtex entries to the clipboard.</string>
+		<key>LBTwitter</key>
+		<string>@mweiel</string>
+		<key>LBWebsiteURL</key>
+		<string>http://manuel.weiel.eu</string>
+	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBRequirements</key>
+	<string>Active Internet connection</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+		<key>LBSuggestionsScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>suggestions.js</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Enter publication title or author</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2016 Manuel Weiel</string>
+</dict>
+</plist>
